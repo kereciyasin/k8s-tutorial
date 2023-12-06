@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: prometheus
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2023-12-06T11:42:01Z"
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/instance: prometheus
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: prometheus
+    app.kubernetes.io/version: v2.48.0
+    helm.sh/chart: prometheus-25.8.0
+  name: prometheus-server
+  namespace: default
+  resourceVersion: "1055"
+  uid: 58f8ee56-94b4-43b5-a3e2-16e3de4831d9
+spec:
+  clusterIP: 10.105.88.145
+  clusterIPs:
+  - 10.105.88.145
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    nodePort: 31853
+    port: 80
+    protocol: TCP
+    targetPort: 9090
+                                                                                                           selector:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/instance: prometheus
+    app.kubernetes.io/name: prometheus
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    meta.helm.sh/release-name: prometheus
+    meta.helm.sh/release-namespace: default
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: k8s.io/minikube-hostpath
+    volume.kubernetes.io/storage-provisioner: k8s.io/minikube-hostpath
+  creationTimestamp: "2023-12-06T11:42:01Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/instance: prometheus
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: prometheus
+    app.kubernetes.io/version: v2.48.0
+    helm.sh/chart: prometheus-25.8.0
+  name: prometheus-server
+  namespace: default
+  resourceVersion: "674"
+  uid: 162336e2-7f87-47f6-8125-a316ebbcbbd3
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+  storageClassName: standard
+  volumeMode: Filesystem
+  volumeName: pvc-162336e2-7f87-47f6-8125-a316ebbcbbd3
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 8Gi
+  phase: Bound
